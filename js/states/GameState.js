@@ -4,7 +4,12 @@ SpaceHipster.GameState = {
 
   //initiate game settings
   init: function() {
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
+    this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    this.PLAYER_SPEED = 200;
+    this.BULLET_SPEED = -1000;
   },
 
   //load the game assets before the game starts
@@ -21,7 +26,9 @@ SpaceHipster.GameState = {
   },
   //executed after everything is loaded
   create: function() {
+    this.background = this.add.tileSprite(0, 0, this.game.world.width, this.game.world.height, 'space');
 
+    this.background.autoScroll(0, 30);
   },
   update: function() {
   },
